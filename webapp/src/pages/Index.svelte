@@ -1,0 +1,16 @@
+<script>
+import Header from "../components/Header.svelte";
+import Section from "../components/Section.svelte";
+import FlexLayout from "../components/FlexLayout.svelte";
+</script>
+
+<FlexLayout>
+    <Header />
+    <Section tab={"index"}>
+        
+        <div class="h-full relative">
+            Home
+        </div>
+
+    </Section>
+</FlexLayout>
