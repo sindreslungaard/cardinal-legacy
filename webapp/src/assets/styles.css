@@ -30,3 +30,7 @@ html, body {
     padding-top: 21px;
     padding-bottom: 9px;
 }
+
+.no-outline:focus-visible {
+    outline: none;
+}
