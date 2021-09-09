@@ -27,6 +27,15 @@ type WebsocketClient struct {
 	disposed bool
 }
 
+func NewWebsocketClient(conn *websocket.Conn) *WebsocketClient {
+	return &WebsocketClient{
+		conn: conn,
+		send: make(chan interface{}),
+
+		disposed: false,
+	}
+}
+
 func BeginReading(c *WebsocketClient) {
 	defer func() {
 		Dispose(c)
