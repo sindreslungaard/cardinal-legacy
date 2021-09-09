@@ -34,3 +34,7 @@ html, body {
 .no-outline:focus-visible {
     outline: none;
 }
+
+menu[role=tablist] button {
+    margin-right: 0 !important;
+}
