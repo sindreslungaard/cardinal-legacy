@@ -1,23 +1,22 @@
 package main
 
 import (
+	"cardinal/logger"
 	"cardinal/network"
-	"cardinal/tasks"
-	"fmt"
-
-	"github.com/docker/docker/client"
 )
 
 func main() {
 
-	cli, err := client.NewClientWithOpts(client.FromEnv)
+	logger.Info("Test")
+
+	/* cli, err := client.NewClientWithOpts(client.FromEnv)
 	if err != nil {
 		panic(err)
 	}
 
 	containers := tasks.ListContainers(cli)
 
-	println(fmt.Sprintf("containers: %v", containers))
+	println(fmt.Sprintf("containers: %v", containers)) */
 
 	runMaster()
 

@@ -1,5 +1,16 @@
 package data
 
 const (
-	storagePath = "./storage"
+	dataFilename = "data"
+	storagePath  = "./storage"
 )
+
+var data Data
+
+func getOrCreate() {
+
+}
+
+func Update(func(d Data) Data) {
+
+}
