@@ -1,13 +1,11 @@
 package main
 
 import (
-	"cardinal/logger"
 	"cardinal/network"
+	"cardinal/system"
 )
 
 func main() {
-
-	logger.Info("Test")
 
 	/* cli, err := client.NewClientWithOpts(client.FromEnv)
 	if err != nil {
@@ -23,5 +21,6 @@ func main() {
 }
 
 func runMaster() {
+	go system.Process(system.NewSystem())
 	network.ListenAndServe()
 }

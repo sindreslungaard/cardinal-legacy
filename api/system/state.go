@@ -1,9 +1,17 @@
 package system
 
+type ServerStatus string
+
+const (
+	ServerStatusOK       ServerStatus = "ok"
+	ServerStatusConflict              = "conflict"
+	ServerStatusOffline               = "offline"
+)
+
 type ServerState struct {
-	Uid    string `json:"uid"`
-	Status string `json:"status"`
-	Host   string `json:"host"`
+	Uid    string       `json:"uid"`
+	Status ServerStatus `json:"status"`
+	Host   string       `json:"host"`
 }
 
 type ContainerState struct {

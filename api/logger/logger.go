@@ -17,7 +17,7 @@ func Warn(msg string, args ...interface{}) {
 	log(format(msg))
 }
 
-func Fatal(msg string, args ...interface{}) {
+func Error(msg string, args ...interface{}) {
 	log(format(msg))
 }
 
