@@ -10,6 +10,8 @@ func NewCLI(host string) (*client.Client, error) {
 		return nil, err
 	}
 
+	cli.Ping()
+
 	return cli, nil
 
 }

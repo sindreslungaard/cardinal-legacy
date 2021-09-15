@@ -38,7 +38,7 @@ func Process(sys System) {
 
 			s := NewState()
 			s.Servers = UpdateServerState()
-			s.Containers = UpdateContainerState()
+			s.Containers = UpdateContainerState(sys.State)
 
 			sys.State = s
 
@@ -72,12 +72,18 @@ func UpdateServerState() map[string]ServerState {
 
 }
 
-func UpdateContainerState() map[string]ContainerState {
+func UpdateContainerState(prevState State) map[string]ContainerState {
 
 	d := data.Copy()
 
-	
+	for _, c := range d.Containers {
+
+	}
 
 	cli, err := tasks.NewCLI("")
+
+}
+
+func RunContainer() (ok bool) {
 
 }
