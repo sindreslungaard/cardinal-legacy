@@ -14,11 +14,20 @@ type ServerState struct {
 	Host   string       `json:"host"`
 }
 
+type ContainerStatus string
+
+const (
+	ContainerStatusRunning    ContainerStatus = "running"
+	ContainerStatusRestarting                 = "restarting"
+	ContainerStatusStopped                    = "stopped"
+	ContainerStatusConflict                   = "conflict"
+)
+
 type ContainerState struct {
-	Uid    string `json:"uid"`
-	Host   string `json:"host"`
-	Image  string `json:"image"`
-	Status string `json:"status"`
+	Uid    string          `json:"uid"`
+	Host   string          `json:"host"`
+	Image  string          `json:"image"`
+	Status ContainerStatus `json:"status"`
 }
 
 type State struct {

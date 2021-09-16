@@ -32,7 +32,7 @@ func getOrCreate() Data {
 			Users:      make(map[string]User),
 		}
 
-		data, err = json.MarshalIndent(config, "", "")
+		data, err = json.MarshalIndent(config, "", "	")
 
 		if err != nil {
 			panic(err)

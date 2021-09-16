@@ -1,8 +1,32 @@
 package tasks
 
-import "github.com/docker/docker/client"
+import (
+	"context"
+	"sync"
+
+	"github.com/docker/docker/client"
+)
+
+var cliCache = map[string]*client.Client{}
+var cliCacheMu sync.Mutex
 
 func NewCLI(host string) (*client.Client, error) {
+
+	cliCacheMu.Lock()
+	defer cliCacheMu.Unlock()
+
+	cli, ok := cliCache[host]
+
+	if ok {
+		_, err := cli.Ping(context.Background())
+
+		if err != nil {
+			cli.Close()
+			delete(cliCache, host)
+		} else {
+			return cli, nil
+		}
+	}
 
 	cli, err := client.NewClientWithOpts(client.FromEnv)
 
@@ -10,7 +34,7 @@ func NewCLI(host string) (*client.Client, error) {
 		return nil, err
 	}
 
-	cli.Ping()
+	cliCache[host] = cli
 
 	return cli, nil
 

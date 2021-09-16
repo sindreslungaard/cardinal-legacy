@@ -7,15 +7,13 @@ type Server struct {
 }
 
 type Container struct {
-	Uid      string `json:"uid"`
-	Replicas int    `json:"replicas"`
-	Host     string `json:"host"`
+	Uid  string `json:"uid"`
+	Host string `json:"host"`
 
 	// docker container settings
 	Image   string            `json:"image"`
 	Restart string            `json:"restart"`
-	Name    string            `json:"name"`
-	Env     map[string]string `json:"env"`
+	Env     []string          `json:"env"`
 	Ports   map[string]string `json:"ports"`
 }
 
